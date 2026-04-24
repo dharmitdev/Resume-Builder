@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global lock
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isResumeValid(data, expectedUserId) {
+      return data.keys().hasAll(['userId', 'updatedAt']) &&
+             data.userId == expectedUserId &&
+             data.updatedAt == request.time &&
+             (data.get('name', '') is string && data.get('name', '').size() <= 100) &&
+             (data.get('jobTitle', '') is string && data.get('jobTitle', '').size() <= 100) &&
+             (data.get('email', '') is string && data.get('email', '').size() <= 256) &&
+             (data.get('phone', '') is string && data.get('phone', '').size() <= 50) &&
+             (data.get('address', '') is string && data.get('address', '').size() <= 200) &&
+             (data.get('summary', '') is string && data.get('summary', '').size() <= 2000) &&
+             (data.get('linkedin', '') is string && data.get('linkedin', '').size() <= 500) &&
+             (data.get('github', '') is string && data.get('github', '').size() <= 500) &&
+             (data.get('portfolio', '') is string && data.get('portfolio', '').size() <= 500) &&
+             (data.get('education', '[]') is string && data.get('education', '[]').size() <= 10000) &&
+             (data.get('experience', '[]') is string && data.get('experience', '[]').size() <= 20000) &&
+             (data.get('skills', []) is list && data.get('skills', []).size() <= 100) &&
+             (data.get('projects', '[]') is string && data.get('projects', '[]').size() <= 20000) &&
+             (data.get('certifications', []) is list && data.get('certifications', []).size() <= 50) &&
+             (data.get('languages', []) is list && data.get('languages', []).size() <= 50) &&
+             (data.get('photo', '') is string && data.get('photo', '').size() <= 1000000); // 1MB max for photo
+    }
+
+    match /users/{userId}/resume/data {
+      allow get: if isSignedIn() && request.auth.uid == userId;
+      allow create: if isSignedIn() && isValidId(userId) && request.auth.uid == userId && isResumeValid(incoming(), userId);
+      allow update: if isSignedIn() && isValidId(userId) && request.auth.uid == userId && isResumeValid(incoming(), userId) && incoming().userId == existing().userId;
+      allow delete: if isSignedIn() && request.auth.uid == userId;
+    }
+  }
+}

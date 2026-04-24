@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "Resume": {
+      "title": "Resume",
+      "description": "User's resume data",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "jobTitle": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "summary": { "type": "string" },
+        "linkedin": { "type": "string" },
+        "github": { "type": "string" },
+        "portfolio": { "type": "string" },
+        "education": { "type": "string", "description": "JSON string of education array" },
+        "experience": { "type": "string", "description": "JSON string of experience array" },
+        "skills": { "type": "array" },
+        "projects": { "type": "string", "description": "JSON string of projects array" },
+        "certifications": { "type": "array" },
+        "languages": { "type": "array" },
+        "photo": { "type": "string" },
+        "updatedAt": { "type": "timestamp" }
+      },
+      "required": ["userId", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/resume/data": {
+      "schema": { "$ref": "#/entities/Resume" },
+      "description": "Stores user's active resume"
+    }
+  }
+}
