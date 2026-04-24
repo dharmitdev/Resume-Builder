@@ -28,10 +28,352 @@ const defaultData: ResumeData = {
 
 interface ToastMessage { id: number; type: 'success' | 'error' | 'info'; msg: string; }
 
+const ResumeT4 = ({ data, photo }: { data: ResumeData; photo: string }) => (
+  <div className="t4">
+    <div className="t4-header">
+      {photo && <img src={photo} alt="" style={{width: 100, height: 100, borderRadius: '50%', marginBottom: 20, border: '3px solid white', objectFit: 'cover'}} />}
+      <h1>{data.name || 'Your Name'}</h1>
+      <div className="job-title">{data.jobTitle || 'Your Profession'}</div>
+      <div className="t4-contact">
+        {data.email && <div>{data.email}</div>}
+        {data.phone && <div>• {data.phone}</div>}
+        {data.address && <div>• {data.address}</div>}
+        {data.linkedin && <div>• {data.linkedin}</div>}
+      </div>
+    </div>
+    
+    <div className="t4-content">
+      <div className="t4-main">
+        {data.summary && (
+          <>
+            <h3>Profile</h3>
+            <p style={{lineHeight: 1.6, color: '#4b5563', marginBottom: 30}}>{data.summary}</p>
+          </>
+        )}
+        
+        {data.experience.length > 0 && (
+          <>
+            <h3>Experience</h3>
+            {data.experience.map((e, i) => (
+              <div key={i} className="t-item">
+                <div className="t-title">{e.role}</div>
+                <div className="t-org">{e.company}</div>
+                <div className="t-date">{e.startDate} - {e.endDate}</div>
+                <p style={{fontSize: 14, color: '#4b5563', lineHeight: 1.5}}>{e.desc}</p>
+              </div>
+            ))}
+          </>
+        )}
+
+        {data.projects.length > 0 && (
+          <>
+            <h3>Projects</h3>
+            {data.projects.map((p, i) => (
+              <div key={i} className="t-item">
+                <div className="t-title">{p.title}</div>
+                <div className="t-date">{p.tech}</div>
+                <p style={{fontSize: 14, color: '#4b5563', lineHeight: 1.5}}>{p.desc}</p>
+              </div>
+            ))}
+          </>
+        )}
+      </div>
+      
+      <div className="t4-side">
+        {data.skills.length > 0 && (
+          <>
+            <h3>Skills</h3>
+            <div className="t4-skills" style={{marginBottom: 30}}>
+              {data.skills.map((s, i) => <span key={i}>{s}</span>)}
+            </div>
+          </>
+        )}
+        
+        {data.education.length > 0 && (
+          <>
+            <h3>Education</h3>
+            {data.education.map((e, i) => (
+              <div key={i} className="t-item">
+                <div className="t-title" style={{fontSize: 14}}>{e.degree}</div>
+                <div className="t-org" style={{fontSize: 13}}>{e.school}</div>
+                <div className="t-date">{e.startYear} - {e.endYear}</div>
+              </div>
+            ))}
+          </>
+        )}
+        
+        {data.certifications.length > 0 && data.certifications[0] !== '' && (
+          <>
+            <h3>Certifications</h3>
+            <ul style={{paddingLeft: 20, color: '#4b5563', fontSize: 14}}>
+              {data.certifications.map((c, i) => c && <li key={i} style={{marginBottom: 8}}>{c}</li>)}
+            </ul>
+          </>
+        )}
+        
+        {data.languages.length > 0 && data.languages[0] !== '' && (
+          <>
+            <h3 style={{marginTop: 30}}>Languages</h3>
+            <ul style={{paddingLeft: 20, color: '#4b5563', fontSize: 14}}>
+              {data.languages.map((l, i) => l && <li key={i} style={{marginBottom: 8}}>{l}</li>)}
+            </ul>
+          </>
+        )}
+      </div>
+    </div>
+  </div>
+);
+
+const ResumeT5 = ({ data, photo }: { data: ResumeData; photo: string }) => (
+  <div className="t5">
+    <div className="t5-header">
+       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
+         <div>
+            <h1>{data.name || 'Your Name'}</h1>
+            <div className="job-title">{data.jobTitle || 'Your Profession'}</div>
+            <div className="t5-contact">
+              {data.email && <div>{data.email}</div>}
+              {data.phone && <div>{data.phone}</div>}
+              {data.address && <div>{data.address}</div>}
+              {data.linkedin && <div>{data.linkedin}</div>}
+            </div>
+         </div>
+         {photo && <img src={photo} alt="" style={{width: 120, height: 120, objectFit: 'cover', border: '5px solid #fff', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'}} />}
+       </div>
+    </div>
+    
+    {data.summary && (
+      <div style={{marginBottom: 40}}>
+        <p style={{lineHeight: 1.8, color: '#404040', fontSize: 15}}>{data.summary}</p>
+      </div>
+    )}
+    
+    <div className="t5-grid">
+       <div>
+          {data.experience.length > 0 && (
+            <>
+              <h3>Professional Experience</h3>
+              {data.experience.map((e, i) => (
+                <div key={i} className="t-item">
+                  <div className="title-row">
+                    <div className="t-title">{e.role}</div>
+                    <div className="t-date">{e.startDate} - {e.endDate}</div>
+                  </div>
+                  <div className="t-org">{e.company}</div>
+                  <p style={{fontSize: 14, color: '#525252', lineHeight: 1.6}}>{e.desc}</p>
+                </div>
+              ))}
+            </>
+          )}
+
+          {data.projects.length > 0 && (
+            <>
+              <h3 style={{marginTop: 40}}>Key Projects</h3>
+              {data.projects.map((p, i) => (
+                <div key={i} className="t-item">
+                  <div className="title-row">
+                    <div className="t-title">{p.title}</div>
+                    <div className="t-date">{p.tech}</div>
+                  </div>
+                  <p style={{fontSize: 14, color: '#525252', lineHeight: 1.6}}>{p.desc}</p>
+                </div>
+              ))}
+            </>
+          )}
+       </div>
+       
+       <div>
+         {data.skills.length > 0 && (
+            <>
+              <h3>Core Competencies</h3>
+              <div className="t5-skills" style={{marginBottom: 40}}>
+                {data.skills.map((s, i) => <span key={i}>{s}</span>)}
+              </div>
+            </>
+          )}
+          
+          {data.education.length > 0 && (
+            <>
+              <h3>Education</h3>
+              {data.education.map((e, i) => (
+                <div key={i} className="t-item">
+                  <div className="t-title" style={{fontSize: 15}}>{e.degree}</div>
+                  <div className="t-org" style={{fontSize: 14, marginBottom: 4}}>{e.school}</div>
+                  <div className="t-date">{e.startYear} - {e.endYear}</div>
+                </div>
+              ))}
+            </>
+          )}
+          
+          {data.certifications.length > 0 && data.certifications[0] !== '' && (
+            <>
+              <h3>Certifications</h3>
+              <ul style={{listStyle: 'none', padding: 0, color: '#525252', fontSize: 14}}>
+                {data.certifications.map((c, i) => c && <li key={i} style={{marginBottom: 10, paddingLeft: 12, borderLeft: '2px solid #991b1b'}}>{c}</li>)}
+              </ul>
+            </>
+          )}
+
+          {data.languages.length > 0 && data.languages[0] !== '' && (
+            <>
+              <h3 style={{marginTop: 40}}>Languages</h3>
+              <ul style={{listStyle: 'none', padding: 0, color: '#525252', fontSize: 14}}>
+                {data.languages.map((l, i) => l && <li key={i} style={{marginBottom: 10, paddingLeft: 12, borderLeft: '2px solid #991b1b'}}>{l}</li>)}
+              </ul>
+            </>
+          )}
+       </div>
+    </div>
+  </div>
+);
+
+const ResumeT6 = ({ data, photo }: { data: ResumeData; photo: string }) => (
+  <div className="t6">
+    <div className="t6-container">
+      <div className="t6-header">
+        <div>
+          <h1>{data.name || 'Your Name'}</h1>
+          <div className="job-title">&gt; {data.jobTitle || 'Your Profession'} _</div>
+        </div>
+        <div className="t6-contact">
+           {data.email && <div>{data.email}</div>}
+           {data.phone && <div>{data.phone}</div>}
+           {data.github && <div>{data.github}</div>}
+           {data.portfolio && <div>{data.portfolio}</div>}
+        </div>
+      </div>
+      
+      {data.summary && (
+        <div style={{marginBottom: 30}}>
+          <h3>// About</h3>
+          <p style={{lineHeight: 1.6, fontSize: 14, color: '#a7f3d0'}}>{data.summary}</p>
+        </div>
+      )}
+      
+      {data.skills.length > 0 && (
+         <div style={{marginBottom: 30}}>
+           <h3>// Stack</h3>
+           <div className="t6-skills">
+             {data.skills.map((s, i) => <span key={i}>{s}</span>)}
+           </div>
+         </div>
+      )}
+      
+      <div className="t6-grid">
+         {data.experience.length > 0 && (
+            <div>
+              <h3>// Experience</h3>
+              {data.experience.map((e, i) => (
+                <div key={i} className="t-item">
+                  <div className="t-title">{e.role}</div>
+                  <div className="t-org">@ {e.company}</div>
+                  <div className="t-date">[{e.startDate} - {e.endDate}]</div>
+                  <p style={{fontSize: 13, color: '#a7f3d0', lineHeight: 1.5}}>{e.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {data.projects.length > 0 && (
+            <div>
+              <h3>// Projects</h3>
+              {data.projects.map((p, i) => (
+                <div key={i} className="t-item">
+                  <div className="t-title">{p.title}</div>
+                  <div className="t-date">[{p.tech}]</div>
+                  <p style={{fontSize: 13, color: '#a7f3d0', lineHeight: 1.5}}>{p.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          
+          {data.education.length > 0 && (
+            <div>
+              <h3>// Education</h3>
+              {data.education.map((e, i) => (
+                <div key={i} className="t-item">
+                  <div className="t-title" style={{fontSize: 16}}>{e.degree}</div>
+                  <div className="t-org">@ {e.school}</div>
+                  <div className="t-date">[{e.startYear} - {e.endYear}]</div>
+                </div>
+              ))}
+            </div>
+          )}
+      </div>
+    </div>
+  </div>
+);
+
+const ResumeT9 = ({ data }: { data: ResumeData }) => (
+  <div className="t9">
+    <div className="t9-header">
+      <h1>{data.name || 'Your Name'}</h1>
+      <div className="job-title">{data.jobTitle || 'Your Profession'}</div>
+      
+      <div className="t9-contact">
+        {data.phone && <div>{data.phone}</div>}
+        {data.phone && data.email && <div>•</div>}
+        {data.email && <div>{data.email}</div>}
+        {data.email && data.address && <div>•</div>}
+        {data.address && <div>{data.address}</div>}
+        {data.address && data.linkedin && <div>•</div>}
+        {data.linkedin && <div>{data.linkedin}</div>}
+      </div>
+    </div>
+    
+    {data.summary && (
+      <div className="t9-section">
+        <h3>About Me</h3>
+        <p className="t9-summary">{data.summary}</p>
+      </div>
+    )}
+    
+    {data.education.length > 0 && (
+      <div className="t9-section">
+        <h3>Education</h3>
+        {data.education.map((e, i) => (
+          <div key={i} className="t-item">
+            <div className="t-org-row">
+              <div>{e.school}</div>
+              <span>{e.endYear}</span>
+            </div>
+            <div className="t-title">{e.degree}</div>
+          </div>
+        ))}
+      </div>
+    )}
+    
+    {data.experience.length > 0 && (
+      <div className="t9-section">
+        <h3>Work Experience</h3>
+        {data.experience.map((e, i) => (
+          <div key={i} className="t-item">
+            <div className="t-org-row">
+              <div>{e.company}</div>
+              <span>{e.startDate} - {e.endDate}</span>
+            </div>
+            <div className="t-title">{e.role}</div>
+            <p className="t-desc">{e.desc}</p>
+          </div>
+        ))}
+      </div>
+    )}
+    
+    {data.skills.length > 0 && (
+      <div className="t9-section">
+        <h3>Skills</h3>
+        <ul className="skills-grid">
+          {data.skills.map((s, i) => <li key={i}>{s}</li>)}
+        </ul>
+      </div>
+    )}
+  </div>
+);
+
 export default function App() {
   const [isDark, setIsDark] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
-  const [template, setTemplate] = useState<'t1' | 't2' | 't3'>('t1');
+  const [template, setTemplate] = useState<'t1' | 't2' | 't3' | 't4' | 't5' | 't6' | 't9'>('t1');
   const [data, setData] = useState<ResumeData>(defaultData);
   const [photoDataUrl, setPhotoDataUrl] = useState<string>('');
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
@@ -620,6 +962,22 @@ export default function App() {
                 <div className="template-thumb template-t3">✨</div>
                 <div className="template-name">Creative Sidebar</div>
               </div>
+              <div className={`template-card ${template === 't4' ? 'selected' : ''}`} onClick={() => { setTemplate('t4'); showToast('info', 'Template switched!'); }}>
+                <div className="template-thumb template-t4" style={{background: 'linear-gradient(135deg, #1e3a8a, #312e81)'}}>🟦</div>
+                <div className="template-name">Corporate Blue</div>
+              </div>
+              <div className={`template-card ${template === 't5' ? 'selected' : ''}`} onClick={() => { setTemplate('t5'); showToast('info', 'Template switched!'); }}>
+                <div className="template-thumb template-t5" style={{background: 'linear-gradient(135deg, #7f1d1d, #991b1b)'}}>🟥</div>
+                <div className="template-name">Executive Red</div>
+              </div>
+              <div className={`template-card ${template === 't6' ? 'selected' : ''}`} onClick={() => { setTemplate('t6'); showToast('info', 'Template switched!'); }}>
+                <div className="template-thumb template-t6" style={{background: 'linear-gradient(135deg, #064e3b, #065f46)'}}>🟩</div>
+                <div className="template-name">Tech Emerald</div>
+              </div>
+              <div className={`template-card ${template === 't9' ? 'selected' : ''}`} onClick={() => { setTemplate('t9'); showToast('info', 'Template switched!'); }}>
+                <div className="template-thumb template-t9" style={{background: 'linear-gradient(135deg, #e5e7eb, #4b5563)'}}>⬛</div>
+                <div className="template-name">Minimalist Centered</div>
+              </div>
             </div>
 
             <div className="resume-wrapper">
@@ -627,6 +985,10 @@ export default function App() {
                 {template === 't1' && <ResumeT1 data={data} photo={photoDataUrl} />}
                 {template === 't2' && <ResumeT2 data={data} photo={photoDataUrl} />}
                 {template === 't3' && <ResumeT3 data={data} photo={photoDataUrl} />}
+                {template === 't4' && <ResumeT4 data={data} photo={photoDataUrl} />}
+                {template === 't5' && <ResumeT5 data={data} photo={photoDataUrl} />}
+                {template === 't6' && <ResumeT6 data={data} photo={photoDataUrl} />}
+                {template === 't9' && <ResumeT9 data={data} />}
               </div>
             </div>
           </div>

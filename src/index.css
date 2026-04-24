@@ -96,7 +96,6 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-hei
 
 /* BUILDER LAYOUT */
 .builder-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-@media(max-width:1024px){.builder-layout{grid-template-columns:1fr}}
 
 /* FORM PANEL */
 .form-panel{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:sticky;top:90px}
@@ -280,27 +279,135 @@ textarea{min-height:90px}
 .score-title{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:4px}
 .score-desc{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3)}
 
+/* ==================== RESUME TEMPLATE 4: CORPORATE BLUE ==================== */
+.t4 {font-family:ui-sans-serif, system-ui, sans-serif;color:#1e293b;background:#fff;padding:0;}
+.t4-header {background:linear-gradient(135deg, #1e3a8a, #312e81);padding:40px 48px;color:#fff;text-align:center;}
+.t4-header h1 {font-size:32px;font-weight:700;margin-bottom:8px;font-family:var(--font-display);}
+.t4-header .job-title {font-size:16px;color:#93c5fd;font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.1em;}
+.t4-contact {display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:13px;color:#bfdbfe;}
+.t4-content {display:grid;grid-template-columns:2fr 1fr;gap:40px;padding:40px 48px;}
+.t4 h3 {font-size:14px;color:#1e3a8a;font-weight:700;text-transform:uppercase;border-bottom:2px solid #e0e7ff;padding-bottom:8px;margin-bottom:20px;letter-spacing:0.05em;}
+.t4 .t-item {margin-bottom:24px;}
+.t4 .t-title {font-size:15px;font-weight:700;color:#1e293b;margin-bottom:4px;}
+.t4 .t-org {font-size:14px;font-weight:600;color:#3b82f6;}
+.t4 .t-date {font-size:13px;color:#64748b;margin-bottom:8px;font-style:italic;}
+.t4-skills span {display:inline-block;background:#eff6ff;color:#1d4ed8;padding:6px 14px;border-radius:4px;font-size:12px;margin:0 8px 8px 0;font-weight:600;}
+
+/* ==================== RESUME TEMPLATE 5: EXECUTIVE RED ==================== */
+.t5 {font-family:'Playfair Display', serif;color:#262626;background:#fafaf9;padding:48px;}
+.t5-header {border-bottom:1px solid #d4d4d8;padding-bottom:30px;margin-bottom:30px;}
+.t5-header h1 {font-size:42px;font-weight:900;color:#171717;line-height:1.1;margin-bottom:12px;}
+.t5-header .job-title {font-size:16px;color:#991b1b;font-weight:700;font-style:italic;margin-bottom:20px;font-family:ui-sans-serif, system-ui, sans-serif;}
+.t5-contact {display:flex;flex-wrap:wrap;column-gap:24px;row-gap:8px;font-size:13px;color:#525252;font-family:ui-sans-serif, system-ui, sans-serif;}
+.t5-grid {display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+.t5 h3 {font-size:18px;color:#171717;font-weight:700;margin-bottom:24px;text-transform:uppercase;letter-spacing:0.1em;position:relative;}
+.t5 h3::before {content:'';position:absolute;left:-48px;top:50%;width:32px;height:2px;background:#991b1b;}
+.t5 .t-item {margin-bottom:28px;font-family:ui-sans-serif, system-ui, sans-serif;}
+.t5 .title-row {display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
+.t5 .t-title {font-size:16px;font-weight:700;color:#171717;}
+.t5 .t-date {font-size:13px;color:#991b1b;font-weight:600;}
+.t5 .t-org {font-size:14px;color:#525252;font-style:italic;margin-bottom:10px;}
+.t5-skills span {display:inline-block;border:1px solid #d4d4d8;color:#404040;padding:6px 16px;font-size:13px;margin:0 8px 8px 0;font-family:ui-sans-serif, system-ui, sans-serif;}
+
+/* ==================== RESUME TEMPLATE 6: TECH EMERALD ==================== */
+.t6 {font-family:ui-monospace, SFMono-Regular, monospace;color:#d1d5db;background:#064e3b;padding:0;}
+.t6-container {background:#022c22;margin:20px;padding:40px;border-radius:12px;border:1px solid #059669;}
+.t6-header {display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed #059669;padding-bottom:30px;margin-bottom:30px;}
+.t6-header h1 {font-size:28px;font-weight:700;color:#10b981;margin-bottom:8px;}
+.t6-header .job-title {font-size:14px;color:#a7f3d0;}
+.t6-contact {text-align:right;font-size:13px;color:#6ee7b7;}
+.t6-contact div {margin-bottom:4px;}
+.t6 h3 {font-size:16px;color:#10b981;margin-bottom:16px;font-weight:400;}
+.t6 .t-item {margin-bottom:24px;border-left:2px solid #059669;padding-left:16px;}
+.t6 .t-title {font-size:15px;color:#fff;margin-bottom:4px;}
+.t6 .t-org {font-size:13px;color:#6ee7b7;margin-bottom:4px;}
+.t6 .t-date {font-size:12px;color:#047857;margin-bottom:8px;}
+.t6-skills span {display:inline-block;background:#065f46;color:#a7f3d0;padding:4px 12px;font-size:12px;margin:0 8px 8px 0;}
+.t6-grid {display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+
+/* ==================== RESUME TEMPLATE 9: MINIMALIST CENTERED ==================== */
+.t9 {font-family:ui-sans-serif, system-ui, sans-serif;background:#fff;color:#374151;padding:48px 64px;text-align:left;}
+.t9-header {text-align:center;margin-bottom:24px;}
+.t9-header h1 {font-size:32px;font-weight:700;color:#111827;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:8px;}
+.t9-header .job-title {font-size:14px;color:#4b5563;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:24px;}
+.t9-contact {display:flex;justify-content:center;flex-wrap:wrap;gap:24px;font-size:13px;color:#111827;padding-bottom:24px;border-bottom:1px solid #d1d5db;}
+.t9-section {margin-top:24px;margin-bottom:32px;}
+.t9 h3 {font-size:14px;font-weight:700;color:#111827;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid #d1d5db;padding-bottom:10px;margin-bottom:20px;}
+.t9-summary {font-size:13px;color:#4b5563;line-height:1.6;}
+.t9 .t-item {margin-bottom:24px;}
+.t9 .t-org-row {display:flex;justify-content:space-between;color:#111827;font-size:14px;margin-bottom:4px;font-weight:600;}
+.t9 .t-org-row span {font-weight:400;color:#6b7280;}
+.t9 .t-title {font-size:14px;color:#4b5563;margin-bottom:8px;font-style:italic;}
+.t9 .t-desc {font-size:13px;color:#4b5563;line-height:1.6;}
+.t9 .skills-grid {display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;font-size:13px;color:#4b5563;list-style:none;padding:0;margin:0;}
+.t9 .skills-grid li {margin-bottom:4px;display:flex;align-items:center;}
+.t9 .skills-grid li::before {content:'•';margin-right:8px;color:#111827;font-weight:bold;}
+
+/* RESPONSIVE FOR NEW TEMPLATES */
+
 /* RESPONSIVE */
+@media(max-width:1024px){
+  .builder-layout{grid-template-columns:1fr;gap:24px}
+  .form-panel{position:static;max-height:none}
+  .form-body{max-height:none}
+  .preview-panel{position:static}
+}
 @media(max-width:768px){
   .nav{padding:12px 20px}
   .hero{padding:100px 20px 60px}
-  .hero-stats{gap:32px}
-  .progress-steps{min-width:200px}
+  .hero-stats{gap:24px}
+  .progress-steps{min-width:160px;flex-wrap:wrap}
   .field-row{grid-template-columns:1fr}
   .template-grid{grid-template-columns:repeat(2,1fr)}
-  .resume-wrapper{transform-origin:top center}
-  .builder-section{padding:40px 16px}
+  .resume-wrapper{transform-origin:top left;overflow-x:auto}
+  .builder-section{padding:30px 16px}
   .form-body{padding:20px}
-  .form-nav{padding:16px 20px}
+  .form-nav{padding:16px 20px;flex-direction:column;gap:12px}
+  .form-nav button{width:100%}
+  
   .t3{grid-template-columns:1fr}
-  .t3 .r-side{padding:30px 24px}
-  .t1 .r-header{grid-template-columns:1fr;gap:16px}
-  .t1 .r-contact{align-items:flex-start}
+  .t3 .r-side{padding:30px 24px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .t3 .r-photo-wrap{grid-column:1/-1;margin-bottom:10px}
+  .t3 .r-main{padding:30px 24px}
+  
+  .t1 .r-header{grid-template-columns:1fr;gap:16px;text-align:center}
+  .t1 .r-contact{align-items:center}
+  .t1 .r-photo{margin:0 auto}
   .t1 .r-body{grid-template-columns:1fr}
+  
+  .t2 .r-header{padding:30px 24px}
+  .t2 .r-header-top{flex-direction:column;text-align:center;gap:16px}
+  .t2 .r-body{padding:30px 24px}
+  .t2 .r-contact-row{justify-content:center}
+}
+@media(max-width:640px) {
+  .t4-content {grid-template-columns:1fr;padding:30px 20px}
+  .t4-header {padding:30px 20px}
+  .t5-grid {grid-template-columns:1fr;gap:30px}
+  .t5 {padding:24px}
+  .t6-grid {grid-template-columns:1fr;gap:30px}
+  .t6-container {margin:10px;padding:24px}
+  .t5 h3::before {display:none;}
+  .t3 .r-side{grid-template-columns:1fr}
+  
+  .t7 {grid-template-columns:1fr;}
+  .t7-main {border-left:none; padding:20px;}
+  .t7-side {padding:20px;}
+  .t7-icon-wrap {position:static;width:24px;height:24px;font-size:12px;margin-right:8px;border:none;}
+  .t7-main h3 {align-items:center;margin-bottom:16px;}
+  .t7-timeline-node {display:none;}
+  .t7-timeline-item {margin-left:0;padding-left:0;}
+  .t7 .t-desc {margin-left:0;padding-left:12px;}
+  .t8 {grid-template-columns:1fr;}
+  .t8-header {grid-column:1/-1;padding:30px 20px;}
+  .t8-header h1 {font-size:32px;}
+  .t8-body {padding:20px;}
+  .t9 {padding:24px;}
 }
 @media(max-width:480px){
   .hero h1{font-size:36px}
   .template-grid{grid-template-columns:1fr}
+  .progress-container{padding:16px 20px;gap:16px}
 }
 
 /* LANG INPUT ROW */
