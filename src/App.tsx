@@ -624,13 +624,13 @@ export default function App() {
         <div className="hero-inner">
           <div className="hero-badge"><span className="badge-dot"></span> Free · No signup required</div>
           <h1>Build a Resume<br />that <span>Gets Hired</span></h1>
-          <p className="hero-sub">Craft a stunning, ATS-optimized resume in minutes. Three professional templates. Real-time preview. One-click PDF export.</p>
+          <p className="hero-sub">Craft a stunning, ATS-optimized resume in minutes. Seven professional templates. Real-time preview. One-click PDF export.</p>
           <div className="hero-btns">
             <button className="btn-primary" onClick={scrollToBuilder}>Start Building Now →</button>
             <button className="btn-outline" onClick={scrollToBuilder}>View Templates</button>
           </div>
           <div className="hero-stats">
-            <div className="stat"><div className="stat-num">3</div><div className="stat-label">Pro Templates</div></div>
+            <div className="stat"><div className="stat-num">7</div><div className="stat-label">Pro Templates</div></div>
             <div className="stat"><div className="stat-num">100%</div><div className="stat-label">ATS Friendly</div></div>
             <div className="stat"><div className="stat-num">PDF</div><div className="stat-label">Export Ready</div></div>
           </div>
